@@ -1,0 +1,30 @@
+{
+  "canisters": {
+    "ChronoX_backend": {
+      "main": "src/ChronoX_backend/main.mo",
+      "type": "motoko"
+    },
+    "ChronoX_frontend": {
+      "dependencies": [
+        "ChronoX_backend"
+      ],
+      "source": [
+        "src/ChronoX_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "ChronoX_frontend"
+    },
+    "internet_identity": {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": "mops sources"
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

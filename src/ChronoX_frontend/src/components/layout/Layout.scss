@@ -1,0 +1,31 @@
+@import '../../styles/mixins';
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, $bg-secondary 0%, white 100%);
+  
+  &__main {
+    flex: 1;
+    padding: $spacing-4xl 0;
+    
+    @include mobile-down {
+      padding: $spacing-3xl 0;
+    }
+  }
+  
+  &__footer {
+    background: $gray-50;
+    border-top: 1px solid $gray-200;
+    padding: $spacing-3xl 0;
+    margin-top: auto;
+  }
+  
+  &__footer-container {
+    @include container;
+    text-align: center;
+    color: $gray-600;
+    font-size: $font-size-sm;
+  }
+}

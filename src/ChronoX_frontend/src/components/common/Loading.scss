@@ -1,0 +1,50 @@
+@import '../../styles/mixins';
+
+.loading {
+  @include flex-center;
+  @include flex-column;
+  gap: $spacing-lg;
+  
+  &--fullpage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(white, 0.9);
+    z-index: 9999;
+  }
+  
+  &__spinner {
+    border-radius: 50%;
+    border: 3px solid $gray-200;
+    border-top: 3px solid $primary-blue;
+    animation: spin 1s linear infinite;
+  }
+  
+  &--sm &__spinner {
+    width: 24px;
+    height: 24px;
+  }
+  
+  &--md &__spinner {
+    width: 40px;
+    height: 40px;
+  }
+  
+  &--lg &__spinner {
+    width: 56px;
+    height: 56px;
+  }
+  
+  &__text {
+    color: $gray-600;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

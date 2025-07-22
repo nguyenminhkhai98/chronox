@@ -1,0 +1,190 @@
+@import './variables';
+
+// Responsive mixins (desktop-first)
+@mixin desktop-down($breakpoint) {
+  @media (max-width: $breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @include desktop-down($breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin mobile-down {
+  @include desktop-down($breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin small-mobile-down {
+  @include desktop-down($breakpoint-sm) {
+    @content;
+  }
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md $spacing-xl;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  white-space: nowrap;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: linear-gradient(135deg, $primary-blue, $primary-navy);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, darken($primary-blue, 5%), darken($primary-navy, 5%));
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: $bg-primary;
+  color: $primary-blue;
+  border: 2px solid $primary-blue;
+  
+  &:hover:not(:disabled) {
+    background: $primary-blue;
+    color: white;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin button-accent {
+  @include button-base;
+  background: linear-gradient(135deg, $accent-orange, $accent-gold);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, darken($accent-orange, 5%), darken($accent-gold, 5%));
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Card mixins
+@mixin card-base {
+  background: $bg-primary;
+  border-radius: $border-radius-lg;
+  padding: $spacing-3xl;
+  box-shadow: $shadow-base;
+  transition: all $transition-normal;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin card-interactive {
+  @include card-base;
+  @include card-hover;
+  cursor: pointer;
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Input mixins
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  border: 2px solid $gray-300;
+  border-radius: $border-radius-md;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  transition: border-color $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba($primary-blue, 0.1);
+  }
+  
+  &::placeholder {
+    color: $gray-500;
+  }
+  
+  &:disabled {
+    background-color: $gray-100;
+    cursor: not-allowed;
+  }
+}
+
+// Container mixin
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  
+  @include tablet-down {
+    padding: 0 $spacing-lg;
+  }
+  
+  @include mobile-down {
+    padding: 0 $spacing-md;
+  }
+}
+
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Text utilities
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-gradient {
+  background: linear-gradient(135deg, $primary-blue, $accent-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

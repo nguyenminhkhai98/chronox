@@ -1,0 +1,17 @@
+@import '../../styles/mixins';
+
+.card {
+  @include card-base;
+  border: none;
+  text-align: left;
+  width: 100%;
+  
+  &--interactive {
+    @include card-hover;
+    cursor: pointer;
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

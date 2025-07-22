@@ -1,0 +1,236 @@
+@import '../styles/mixins';
+
+.home {
+  &__hero {
+    padding: $spacing-6xl 0;
+    background: linear-gradient(135deg, $bg-secondary 0%, white 50%, $bg-secondary 100%);
+    
+    @include mobile-down {
+      padding: $spacing-5xl 0;
+    }
+  }
+  
+  &__hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-6xl;
+    align-items: center;
+    
+    @include tablet-down {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: $spacing-5xl;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-4xl;
+    line-height: 1.1;
+    margin-bottom: $spacing-3xl;
+    
+    @include mobile-down {
+      font-size: $font-size-3xl;
+    }
+    
+    @include small-mobile-down {
+      font-size: $font-size-2xl;
+    }
+  }
+  
+  &__title-accent {
+    @include text-gradient;
+  }
+  
+  &__subtitle {
+    font-size: $font-size-xl;
+    color: $gray-600;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4xl;
+    
+    @include mobile-down {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-3xl;
+    
+    @include mobile-down {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__hero-visual {
+    @include flex-center;
+    
+    @include tablet-down {
+      order: -1;
+    }
+  }
+  
+  &__clock {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    
+    @include mobile-down {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  
+  &__clock-face {
+    width: 100%;
+    height: 100%;
+    border: 8px solid $primary-blue;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(135deg, white, $gray-50);
+    box-shadow: $shadow-xl;
+  }
+  
+  &__clock-hand {
+    position: absolute;
+    background: $primary-navy;
+    border-radius: 4px;
+    transform-origin: bottom center;
+    
+    &--hour {
+      width: 6px;
+      height: 80px;
+      left: 50%;
+      bottom: 50%;
+      margin-left: -3px;
+      transform: translateX(-50%) rotate(90deg);
+      animation: clockRotate 43200s linear infinite;
+    }
+    
+    &--minute {
+      width: 4px;
+      height: 110px;
+      left: 50%;
+      bottom: 50%;
+      margin-left: -2px;
+      transform: translateX(-50%) rotate(180deg);
+      animation: clockRotate 3600s linear infinite;
+    }
+  }
+  
+  &__clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: $accent-gold;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  
+  &__clock-marker {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: $gray-400;
+    top: 10px;
+    left: 50%;
+    margin-left: -2px;
+    transform-origin: center 140px;
+  }
+  
+  &__features {
+    padding: $spacing-6xl 0;
+    background: white;
+  }
+  
+  &__features-title {
+    text-align: center;
+    margin-bottom: $spacing-5xl;
+  }
+  
+  &__feature {
+    text-align: center;
+    
+    h3 {
+      margin-bottom: $spacing-lg;
+      color: $primary-blue;
+    }
+    
+    p {
+      color: $gray-600;
+      line-height: $line-height-relaxed;
+    }
+  }
+  
+  &__feature-icon {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-3xl;
+    
+    @include mobile-down {
+      font-size: $font-size-3xl;
+      margin-bottom: $spacing-2xl;
+    }
+  }
+  
+  &__stats {
+    padding: $spacing-6xl 0;
+    background: $primary-navy;
+    color: white;
+  }
+  
+  &__stat {
+    text-align: center;
+  }
+  
+  &__stat-number {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $accent-gold;
+    margin-bottom: $spacing-lg;
+    
+    @include mobile-down {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  &__stat-label {
+    font-size: $font-size-lg;
+    color: $gray-300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  &__cta {
+    padding: $spacing-6xl 0;
+    background: linear-gradient(135deg, $accent-orange, $accent-gold);
+    color: white;
+  }
+  
+  &__cta-content {
+    text-align: center;
+    
+    h2 {
+      color: white;
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      font-size: $font-size-xl;
+      color: rgba(white, 0.9);
+      margin-bottom: $spacing-4xl;
+    }
+  }
+}
+
+@keyframes clockRotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}

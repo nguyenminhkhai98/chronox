@@ -1,0 +1,136 @@
+@import '../styles/mixins';
+
+.create-event {
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-5xl;
+    
+    h1 {
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      font-size: $font-size-lg;
+      color: $gray-600;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-6xl;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    @include tablet-down {
+      grid-template-columns: 1fr;
+      gap: $spacing-5xl;
+    }
+  }
+  
+  &__form {
+    @include card-base;
+  }
+  
+  &__form-group {
+    margin-bottom: $spacing-3xl;
+    
+    &:last-of-type {
+      margin-bottom: $spacing-4xl;
+    }
+  }
+  
+  &__error {
+    padding: $spacing-lg;
+    background: rgba($error, 0.1);
+    border: 1px solid rgba($error, 0.3);
+    border-radius: $border-radius-md;
+    color: $error;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-3xl;
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-lg;
+    
+    @include mobile-down {
+      flex-direction: column;
+    }
+  }
+  
+  &__preview {
+    @include tablet-down {
+      order: -1;
+    }
+    
+    h3 {
+      margin-bottom: $spacing-3xl;
+      color: $gray-700;
+    }
+  }
+  
+  &__preview-card {
+    @include card-base;
+    border: 2px dashed $gray-300;
+  }
+  
+  &__preview-header {
+    @include flex-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-3xl;
+    gap: $spacing-lg;
+  }
+  
+  &__preview-header h4 {
+    font-size: $font-size-xl;
+    color: $primary-navy;
+    margin: 0;
+    opacity: 0.7;
+  }
+  
+  &__preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+  
+  &__preview-detail {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    color: $gray-600;
+    font-size: $font-size-base;
+  }
+  
+  &__preview-icon {
+    font-size: $font-size-lg;
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  &__auth-required {
+    text-align: center;
+    padding: $spacing-6xl $spacing-3xl;
+    max-width: 500px;
+    margin: 0 auto;
+    
+    h2 {
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      font-size: $font-size-lg;
+      color: $gray-600;
+      margin-bottom: $spacing-4xl;
+    }
+  }
+  
+  &__auth-icon {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-3xl;
+    opacity: 0.6;
+  }
+}

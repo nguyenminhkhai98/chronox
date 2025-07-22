@@ -1,0 +1,69 @@
+@import '../../styles/mixins';
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  
+  // Base styles
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--secondary {
+    @include button-secondary;
+  }
+  
+  &--accent {
+    @include button-accent;
+  }
+  
+  // Sizes
+  &--sm {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+  
+  &--md {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-base;
+  }
+  
+  &--lg {
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-lg;
+  }
+  
+  // Loading state
+  &--loading {
+    pointer-events: none;
+  }
+  
+  &__spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: $spacing-sm;
+  }
+  
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    &--loading {
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

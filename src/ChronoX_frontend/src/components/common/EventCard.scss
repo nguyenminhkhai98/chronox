@@ -1,0 +1,97 @@
+@import '../../styles/mixins';
+
+.event-card {
+  border: 2px solid transparent;
+  transition: all $transition-normal;
+  
+  &:hover {
+    border-color: $primary-blue;
+    transform: translateY(-4px);
+  }
+  
+  &__header {
+    @include flex-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-3xl;
+    gap: $spacing-lg;
+  }
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $primary-navy;
+    margin: 0;
+    line-height: $line-height-tight;
+    flex: 1;
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-3xl;
+  }
+  
+  &__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+  
+  &__icon {
+    font-size: $font-size-lg;
+    min-width: 24px;
+    text-align: center;
+  }
+  
+  &__text {
+    color: $gray-700;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+  }
+  
+  &__time {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+  
+  &__datetime {
+    color: $gray-700;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__relative {
+    color: $primary-blue;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__organizer {
+    font-family: monospace;
+    font-size: $font-size-sm !important;
+  }
+  
+  &__footer {
+    border-top: 1px solid $gray-200;
+    padding-top: $spacing-lg;
+    margin-top: auto;
+  }
+  
+  &__action {
+    color: $primary-blue;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    transition: color $transition-fast;
+  }
+  
+  // Hover effects
+  &:hover &__action {
+    color: $accent-orange;
+  }
+  
+  &:hover &__title {
+    color: $primary-blue;
+  }
+}

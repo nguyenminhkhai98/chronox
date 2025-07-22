@@ -1,0 +1,351 @@
+@import '../styles/mixins';
+
+.event-detail {
+  &__header {
+    margin-bottom: $spacing-4xl;
+  }
+  
+  &__back {
+    color: $gray-600;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $primary-blue;
+      text-decoration: none;
+    }
+  }
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-6xl;
+    
+    @include tablet-down {
+      grid-template-columns: 1fr;
+      gap: $spacing-5xl;
+    }
+  }
+  
+  &__main {
+    @include card-base;
+  }
+  
+  &__title-section {
+    @include flex-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-4xl;
+    gap: $spacing-lg;
+    
+    @include mobile-down {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-3xl;
+    margin: 0;
+    flex: 1;
+    
+    @include mobile-down {
+      font-size: $font-size-2xl;
+    }
+  }
+  
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-4xl;
+    margin-bottom: $spacing-5xl;
+    
+    @include mobile-down {
+      grid-template-columns: 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+  
+  &__info-item {
+    display: flex;
+    gap: $spacing-lg;
+    
+    h3 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      color: $gray-700;
+      margin-bottom: $spacing-sm;
+    }
+    
+    p {
+      color: $gray-800;
+      font-size: $font-size-lg;
+      margin: 0;
+    }
+  }
+  
+  &__info-icon {
+    font-size: $font-size-2xl;
+    min-width: 40px;
+    text-align: center;
+  }
+  
+  &__relative-time {
+    display: block;
+    color: $primary-blue;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-top: $spacing-xs;
+  }
+  
+  &__event-id {
+    font-family: monospace;
+    font-size: $font-size-base !important;
+    color: $gray-600 !important;
+  }
+  
+  &__organizer-id {
+    font-family: monospace;
+    font-size: $font-size-base !important;
+    color: $gray-600 !important;
+  }
+  
+  &__organizer-badge {
+    display: inline-block;
+    margin-left: $spacing-sm;
+    padding: $spacing-xs $spacing-sm;
+    background: $primary-blue;
+    color: white;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+  
+  &__message {
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-4xl;
+    position: relative;
+    
+    &--success {
+      background: rgba($success, 0.1);
+      border: 1px solid rgba($success, 0.3);
+      color: $success;
+    }
+    
+    &--error {
+      background: rgba($error, 0.1);
+      border: 1px solid rgba($error, 0.3);
+      color: $error;
+    }
+    
+    p {
+      margin: 0;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  &__message-close {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-md;
+    background: none;
+    border: none;
+    font-size: $font-size-xl;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  &__actions {
+    border-top: 1px solid $gray-200;
+    padding-top: $spacing-4xl;
+  }
+  
+  &__auth-prompt {
+    text-align: center;
+    
+    p {
+      margin-bottom: $spacing-2xl;
+      color: $gray-600;
+    }
+  }
+  
+  &__attending-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    background: rgba($success, 0.1);
+    color: $success;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
+    box-sizing: border-box;
+  }
+  
+  &__organizer-actions {
+    @include flex-center;
+    gap: $spacing-3xl;
+    
+    @include mobile-down {
+      flex-direction: column;
+      gap: $spacing-2xl;
+    }
+  }
+  
+  &__organizer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    background: rgba($primary-blue, 0.1);
+    color: $primary-blue;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__completed,
+  &__cannot-attend {
+    text-align: center;
+    padding: $spacing-lg;
+    color: $gray-600;
+    font-style: italic;
+  }
+  
+  &__error {
+    text-align: center;
+    padding: $spacing-6xl $spacing-3xl;
+    
+    h2 {
+      color: $error;
+      margin-bottom: $spacing-lg;
+    }
+    
+    p {
+      color: $gray-700;
+      margin-bottom: $spacing-3xl;
+    }
+  }
+  
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4xl;
+    
+    @include tablet-down {
+      order: -1;
+    }
+  }
+  
+  &__attendees-card,
+  &__blockchain-info {
+    @include card-base;
+    
+    h3 {
+      margin-bottom: $spacing-3xl;
+      padding-bottom: $spacing-lg;
+      border-bottom: 1px solid $gray-200;
+    }
+  }
+  
+  &__attendees-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  &__attendee {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md;
+    background: $gray-50;
+    border-radius: $border-radius-md;
+  }
+  
+  &__attendee-avatar {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background: $primary-blue;
+    color: white;
+    border-radius: 50%;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+  }
+  
+  &__attendee-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  &__attendee-id {
+    font-family: monospace;
+    font-size: $font-size-sm;
+    color: $gray-600;
+  }
+  
+  &__attendee-badge {
+    padding: $spacing-xs $spacing-sm;
+    background: $accent-gold;
+    color: white;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+  }
+  
+  &__no-attendees {
+    text-align: center;
+    padding: $spacing-3xl;
+    color: $gray-500;
+    
+    p {
+      margin-bottom: $spacing-sm;
+    }
+    
+    span {
+      font-size: $font-size-sm;
+      font-style: italic;
+    }
+  }
+  
+  &__blockchain-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+  
+  &__blockchain-item {
+    @include flex-between;
+    align-items: center;
+  }
+  
+  &__blockchain-label {
+    color: $gray-600;
+    font-size: $font-size-sm;
+  }
+  
+  &__blockchain-value {
+    font-family: monospace;
+    font-size: $font-size-sm;
+    color: $gray-800;
+  }
+  
+  &__blockchain-status {
+    color: $success;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+  }
+}

@@ -1,0 +1,116 @@
+@import '../../styles/mixins';
+
+.header {
+  background: rgba(white, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $gray-200;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  &__container {
+    @include container;
+    @include flex-between;
+    height: 80px;
+    
+    @include mobile-down {
+      height: 70px;
+      gap: $spacing-md;
+    }
+  }
+  
+  &__logo {
+    @include flex-center;
+    gap: $spacing-md;
+    text-decoration: none;
+    color: $primary-navy;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+    
+    &:hover {
+      text-decoration: none;
+      color: $primary-blue;
+    }
+    
+    @include mobile-down {
+      font-size: $font-size-lg;
+      gap: $spacing-sm;
+    }
+  }
+  
+  &__logo-icon {
+    font-size: $font-size-2xl;
+    
+    @include mobile-down {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  &__logo-text {
+    @include text-gradient;
+    
+    @include small-mobile-down {
+      display: none;
+    }
+  }
+  
+  &__nav {
+    @include flex-center;
+    gap: $spacing-3xl;
+    
+    @include tablet-down {
+      gap: $spacing-2xl;
+    }
+    
+    @include mobile-down {
+      gap: $spacing-lg;
+    }
+  }
+  
+  &__nav-link {
+    color: $gray-700;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    transition: all $transition-fast;
+    
+    &:hover {
+      color: $primary-blue;
+      background-color: $gray-50;
+      text-decoration: none;
+    }
+    
+    @include mobile-down {
+      font-size: $font-size-sm;
+      padding: $spacing-xs $spacing-sm;
+    }
+  }
+  
+  &__auth {
+    @include flex-center;
+  }
+  
+  &__user {
+    @include flex-center;
+    gap: $spacing-lg;
+    
+    @include mobile-down {
+      gap: $spacing-md;
+    }
+  }
+  
+  &__user-id {
+    font-family: monospace;
+    font-size: $font-size-sm;
+    color: $gray-600;
+    padding: $spacing-xs $spacing-sm;
+    background: $gray-100;
+    border-radius: $border-radius-sm;
+    
+    @include small-mobile-down {
+      display: none;
+    }
+  }
+}

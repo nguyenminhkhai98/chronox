@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './variables';
+@import './mixins';
+
+// Global reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $gray-800;
+  background: $bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $primary-navy;
+  margin-bottom: $spacing-lg;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  
+  @include mobile-down {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  
+  @include mobile-down {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  
+  @include mobile-down {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin-bottom: $spacing-lg;
+  color: $gray-700;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $primary-blue;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: darken($primary-blue, 10%);
+    text-decoration: underline;
+  }
+}
+
+// Form elements
+input, textarea, select {
+  font-family: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// Utility classes
+.container {
+  @include container;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+.mb-6 { margin-bottom: $spacing-2xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+.mt-6 { margin-top: $spacing-2xl; }
+
+// Grid utilities
+.grid {
+  display: grid;
+  gap: $spacing-3xl;
+  
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include tablet-down {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @include tablet-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile-down {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+    
+    @include desktop-down($breakpoint-xl) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include tablet-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include mobile-down {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  
+  &--center {
+    @include flex-center;
+  }
+  
+  &--between {
+    @include flex-between;
+  }
+  
+  &--column {
+    @include flex-column;
+  }
+}
+
+// Status indicators
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  
+  &--upcoming {
+    background: rgba($info, 0.1);
+    color: $info;
+  }
+  
+  &--completed {
+    background: rgba($success, 0.1);
+    color: $success;
+  }
+  
+  &--error {
+    background: rgba($error, 0.1);
+    color: $error;
+  }
+}

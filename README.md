@@ -1,7 +1,19 @@
 # `ChronoX`
 
-Welcome to your new `ChronoX` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+Chrono-X is a decentralized calendar and event scheduling platform built for the blockchain era. It enables individuals, DAOs, and organizations to create, assign, and track time-based tasks and commitments with full on-chain accountability. Every change — from event creation to status updates — is stored immutably, ensuring transparency and verifiability in collaboration.
 
+🖼️ Features:
+Create Event Screen: Users can define a title, description, date, time, and assign responsibilities when creating a new event.
+
+Event List View: Chrono-X categorizes events dynamically based on their timeline and status, helping users stay organized and on top of their commitments.
+
+Event Detail Page: Displays all relevant details about a selected event, including description, organizer, status, and attendee list.
+
+Join Event Interaction: A one-click "Join" button lets users actively take part in events, turning scheduled tasks into collective action.
+
+Frontend UX – A clean React interface makes interaction intuitive for both individuals and organizations.
+
+# Get started
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 
 To learn more before you start working with `ChronoX`, see the following documentation available online:
